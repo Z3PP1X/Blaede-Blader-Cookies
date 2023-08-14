@@ -1,0 +1,27 @@
+/* Styling for the banner */
+.cookie-banner {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    background-color: #333;
+    color: #fff;
+    padding: 10px 20px;
+    text-align: center;
+}
+
+/* Styling for the buttons */
+#acceptBtn {
+    background-color: #f8c94a;
+    color: #333;
+    border: none;
+    padding: 8px 15px;
+    margin-right: 10px;
+    cursor: pointer;
+    border-radius: 4px;
+}
+
+.cookie-banner a {
+    color: #f8c94a;
+    text-decoration: none;
+}
