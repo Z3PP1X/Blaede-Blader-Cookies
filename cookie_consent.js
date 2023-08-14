@@ -1,18 +1,37 @@
-// Get the elements
+
 const cookieBanner = document.getElementById("cookieBanner");
 const acceptBtn = document.getElementById("acceptBtn");
 
-// Check if the user has already accepted cookies
-const hasAcceptedCookies = localStorage.getItem("cookieConsent");
+
+const hasAcceptedCookies = getCookie("cookieConsent");
 
 if (!hasAcceptedCookies) {
     cookieBanner.style.display = "block";
 }
 
-// Function to handle cookie acceptance
+function getCookie(name) {
+    const cookies = document.cookie.split("; ");
+    for (const cookie of cookies) {
+        const [cookieName, cookieValue] = cookie.split("=");
+        if (cookieName === name) {
+            return decodeURIComponent(cookieValue);
+        }
+    }
+    return null;
+}
+
+function setCookie(name, value, expirationDate) {
+    const expires = expirationDate.toUTCString();
+    document.cookie = `${name}=${encodeURIComponent(value)}; expires=${expires}; path=/`;
+}
+
 function acceptCookies() {
-    // Set a local storage item to remember user's choice
-    localStorage.setItem("cookieConsent", "true");
+    
+    const twoMonthsFromNow = new Date();
+    twoMonthsFromNow.setMonth(twoMonthsFromNow.getMonth() + 2);
+    
+    setCookie("cookieConsent", "true", twoMonthsFromNow);
+    
     cookieBanner.style.display = "none";
 }
 
