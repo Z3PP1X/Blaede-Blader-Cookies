@@ -21,6 +21,16 @@
     border-radius: 4px;
 }
 
+#declineBtn {
+    background-color: #ca0202;
+    color: #333;
+    border: none;
+    padding: 8px 15px;
+    margin-right: 10px;
+    cursor: pointer;
+    border-radius: 4px;
+}
+
 .cookie-banner a {
     color: #f8c94a;
     text-decoration: none;
